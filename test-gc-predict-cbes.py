@@ -16,6 +16,7 @@ parser.add_argument("-m", "--model", help="the path of model.yaml file")
 parser.add_argument("--gc-db",help="the compound list with gc-db mapping results")
 parser.add_argument("--smiles", help="the compound list with SMILES information")
 parser.add_argument("--pH", type=float, help="the pH used to calculate the delta-G")
+parser.add_argument("--IS", type=float, help="the ionic strength used to calculate the delta-G")
 
 args=parser.parse_args()
 
@@ -107,7 +108,7 @@ gc = group_contribution()
 #                    'CC(C)CCCCCCCCCCC(=O)OSCCN'}
 
 
-dgr_vals = gc.calc_dGr(rxn_list, pH = args.pH, IS = 0.0, T = 298.15, cpd_molstring_dict=wp2_structure)
+dgr_vals = gc.calc_dGr(rxn_list, pH = args.pH, IS = args.IS, T = 298.15, cpd_molstring_dict=wp2_structure)
 # dgr_vals = gc.calc_dGr(test_list, pH = 7.0, IS = 0.0, T = 298.15, cpd_molstring_dict=new_structures)
 # print(dgr_vals)
 #
