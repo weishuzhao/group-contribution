@@ -36,19 +36,32 @@ gc = group_contribution()
 
 # test case 3: ATPSYN: 4 C00080 + C00002 + C00001 = 5 C00080 + C00008 + C00009 (proton C00080 should be not included)
 # test using gc_db data directly
-# test_list_gcdb = ['CHB_15422 + CHB_15377 = CHB_16761 + CHB_26078']
-# dgr_vals = gc.calc_dGr(test_list_gcdb, pH = 7.0, IS = 0.0, T = 298.15)
+test_list_gcdb = ['CHB_15422 + CHB_15377 = CHB_16761 + CHB_26078']
 
-# test using SMILEs to replace some of compound from gc_db mapping (C00002, C00008)
+# dgr_vals = gc.calc_dGr(test_list_gcdb, pH = 7.0, IS = 0.0, T = 298.15)
+# dgr_vals = gc.calc_dGr(test_list_gcdb, pH = 4.0, IS = 0.0, T = 298.15)
+# dgr_vals = gc.calc_dGr(test_list_gcdb, pH = 9.0, IS = 0.0, T = 298.15)
+
+
+# dgr_vals = gc.calc_dGr(test_list_gcdb, pH = 7.0, IS = 0.25, T = 298.15)
+# dgr_vals = gc.calc_dGr(test_list_gcdb, pH = 4.0, IS = 0.25, T = 298.15)
+# dgr_vals = gc.calc_dGr(test_list_gcdb, pH = 9.0, IS = 0.25, T = 298.15)
+
+# dgr_vals = gc.calc_dGr(test_list_gcdb, pH = 7.0, IS = 0.036, T = 298.15)
+# dgr_vals = gc.calc_dGr(test_list_gcdb, pH = 4.0, IS = 0.036, T = 298.15)
+dgr_vals = gc.calc_dGr(test_list_gcdb, pH = 9.0, IS = 0.036, T = 298.15)
+
+
+# # test using SMILEs to replace some of compound from gc_db mapping (C00002, C00008)
+# # test_list = ['C00002 + CHB_15377 = C00008 + CHB_26078']
+# # # test
+# # test_structures = {'C00002': 'C1=NC(=C2C(=N1)N(C=N2)C3C(C(C(O3)COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])[O-])O)O)N',
+# #                     'C00008': 'C1=NC(=C2C(=N1)N(C=N2)C3C(C(C(O3)COP(=O)([O-])OP(=O)([O-])[O-])O)O)N'}
 # test_list = ['C00002 + CHB_15377 = C00008 + CHB_26078']
 # # test
 # test_structures = {'C00002': 'C1=NC(=C2C(=N1)N(C=N2)C3C(C(C(O3)COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])[O-])O)O)N',
 #                     'C00008': 'C1=NC(=C2C(=N1)N(C=N2)C3C(C(C(O3)COP(=O)([O-])OP(=O)([O-])[O-])O)O)N'}
-test_list = ['C00002 + CHB_15377 = C00008 + CHB_26078']
-# test
-test_structures = {'C00002': 'C1=NC(=C2C(=N1)N(C=N2)C3C(C(C(O3)COP(=O)([O-])OP(=O)([O-])OP(=O)([O-])[O-])O)O)N',
-                    'C00008': 'C1=NC(=C2C(=N1)N(C=N2)C3C(C(C(O3)COP(=O)([O-])OP(=O)([O-])[O-])O)O)N'}
 
-dgr_vals = gc.calc_dGr(test_list, pH = 7.0, IS = 0.0, T = 298.15, cpd_molstring_dict=test_structures)
+#dgr_vals = gc.calc_dGr(test_list, pH = 7.0, IS = 0.0, T = 298.15, cpd_molstring_dict=test_structures)
 
 print(dgr_vals)
